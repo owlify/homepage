@@ -1,0 +1,118 @@
+main{
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+.btn{
+  background-color: var(--yellow);
+  font-weight: 500;
+  color: #353e44;
+  border-radius: 20px;
+
+}
+.btn:hover{
+  background-color: var(--blue);
+}
+
+.headings{
+  font-size: 28px;
+  font-weight: 500;
+  border-bottom: 4px dashed var(--pink);
+}
+
+/* HEADER */
+.header{
+  height: 80px;
+}
+.logo{
+  font-family: var(--logo-font);
+  font-size: 24px;
+  color: #000000;
+}
+
+/* BANNER */
+.banner{
+  background-color: #f8f7f5;
+  background-repeat: no-repeat;
+  background-image: url("../../public/images/bg-rtl-info-block-light.png");
+  background-size: cover;
+}
+.banner_column{
+  /* height: calc(100vh - 160px); */
+}
+.banner_img{
+  width: 100%;
+}
+.typewritter{
+  font-weight: 900;
+  width: 100%;
+  padding-left: 5% ;
+  padding-right: 5% ;
+  font-size: 2vw;
+  color:#353e44;
+}
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* SERVICES */
+.service{
+  height: 90vh;
+  border-bottom: 4px dashed var(--yellow);
+  background-repeat: no-repeat;
+  /* background-image: url("../../public/images/.png"); */
+  background-size: cover;
+}
+.service_logo{
+ 
+  margin-top: 10vh;
+  transition: all 0.4s ;
+  border-radius: 0px 40px 40px 0 ;  
+  padding: 4px 
+}
+
+.service_logo_active{
+  scale: 1.4;
+  /* border:1px solid var(--blue);  */
+
+}
+.service_logo img{
+  height: 40px;
+}
+.vertical_nav{
+  /* border-right: 4px dashed var(--blue); */
+  width: 10%;
+  height: 100%;
+}
+.horizontal_nav{
+  width: 90%;
+  height: 90vh;
+}
+.section_info{
+}
+.service_heading{
+  font-size: 3.5vh;
+  font-weight: 500;
+  border-bottom: 2px  var(--pink);
+  ;
+}
+.item{
+  font-size: 2.6vh;
+  list-style-type: none;
+}
+.item img{
+  height: 22px;
+}
+.fade-container {
+  transition: opacity .2s ease-in-out;
+}
+
+.fade {
+  opacity: 0;
+}
