@@ -13,12 +13,17 @@ main{
 .btn:hover{
   background-color: var(--blue);
 }
+.btn:active{
+  background-color: var(--blue);
+}
 
 .headings{
-  font-size: 28px;
+  font-size: 40px !important;
   font-weight: 500;
-  border-bottom: 4px dashed var(--pink);
+  /* border-top: 4px dashed var(--pink); */
+  margin-top: 7vh
 }
+
 
 /* HEADER */
 .header{
@@ -64,10 +69,11 @@ main{
 /* SERVICES */
 .service{
   /* height: 90vh; */
-  border-bottom: 4px dashed var(--yellow);
+  border-bottom: 10px solid var(--yellow);
   background-repeat: no-repeat;
   /* background-image: url("../../public/images/.png"); */
   background-size: cover;
+  border-radius: 20px;
 }
 .service_logo{
  
@@ -98,7 +104,7 @@ main{
 .section_info{
 }
 .service_heading{
-  font-size: 3.5vh;
+  font-size: 4vh;
   font-weight: 500;
   border-bottom: 2px  var(--pink);
   ;
@@ -116,4 +122,31 @@ main{
 
 .fade {
   opacity: 0;
+}
+.footer{
+  height: 70vh;
+  background-color: var(--pink);
+  color: var(--font-color);
+  margin: 5vh ;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 992px) {
+  .service_heading{
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 7.4vw; 
+    word-wrap: break-word;
+  }
+  .carousel{
+  }
+  .footer{
+    height: 80vh;
+    margin: 2vh ;
+
+  }
+  .headings{
+    font-size: 40px !important;
+
+  }
 }
