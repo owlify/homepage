@@ -1,4 +1,4 @@
-import React , {useEffect,useState} from 'react'
+import React , {useEffect,useRef,useState} from 'react'
 import jsonData from './data.json'
 // import jsonData from './test.json';
 
@@ -7,58 +7,101 @@ export default function Services() {
   const [auto,setAuto] = useState(true)
   const [service,setService] = useState(true)
   const [itemActive,setItem]=useState(0)
-  
+  const [screenWidth, setScreenWidth] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setScreenWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+  }, []); // Empty dependency array ensures the effect runs only once (on mount)
+
+  const handleResize = () => {
+    setScreenWidth(window.innerWidth);
+  };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-        if(auto){ setActive((prevCount) => prevCount == 2 ? 0 : prevCount + 1)}
-    }, 4000 );
+        if(auto){ setActive((prevCount) => prevCount == 1 ? 0 : prevCount + 1)}
+    }, 40000 );
     return () => clearInterval(intervalId);
   }, [auto])
 
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-        if(service){ setItem((prevCount) => prevCount == 2 ? 0 : prevCount + 1)}
-    }, 1300 );
+        if(service){ setItem((prevCount) => prevCount == 1 ? 0 : prevCount + 1)}
+    }, 20000 );
     return () => clearInterval(intervalId);
   }, [service])
 
+  console.log(screenWidth)
+
 
   return (
-    <div className='mt-4'>
+    <section>
       <div className='row mt-2 p-2 headings text-center'>
       <div><h2>Our Services</h2></div>  
       </div>
 
-      <div className='row service mt-4'>
-        <div className=' pl-2 vertical_nav'>
+      <div className='row p-2 service'>
+      
+      {screenWidth >=992 ?
+        <div className={`col-2 p-0 vertical_nav`}>
             <div className='d-flex flex-column align-items-between '>
-              <div 
-                className={`service_logo text-center ${active == 0 && 'service_logo_active '}`} 
-                onClick={()=>{
-                    setAuto(false)
-                    setActive(0)
-                }}>
-               <span>
-                <img src="/images/email.svg"  /><br/><small>{active == 0 && "Email"}</small>
-                </span> </div>
-                <div className={`service_logo text-center ${active == 1 && 'service_logo_active' }`} 
-                     onClick={()=>{setAuto(false);setActive(1)}}>
-                    <span><img src="/images/sms.svg"  />
-                <br/><small>{active == 1 && "SMS"}</small></span></div>
-                <div className={`service_logo text-center ${active == 2 && 'service_logo_active'}`}
-                   onClick={()=>{setAuto(false);setActive(2)}}>
-                    <span>
-                        <img src="/images/whatsapp.svg"  />
-                        <br/><small>{active == 2 && "Whatsapp"}</small>
-                    </span>
-                </div>
+              {jsonData.map((service,i)=>(
+                  <div 
+                  className={`service_logo text-center ${active == service.id && 'service_logo_active'}`} 
+                  onClick={()=>{
+                      setAuto(false)
+                      setActive(service.id)
+                  }}>
+                  <span>
+                  <img src={service.logo} /><br/><small>{active == service.id && service.name}</small>
+                  </span> </div>
+              ))}
 
             </div>
         </div>
-        <div className='horizontal_nav'>
-            <div className='row p-0 section_info'>
+        :
+        <div className='col-12'>
+        <div className='d-flex flex-row align-items-between justify-content-center '>
+        <div class="btn-group" role="group" >
+         
+        
+          {jsonData.map((service,i)=>(
+              <button type="button" className={`btn ${active == service.id && ''}`}  onClick={()=>{
+                setAuto(false)
+                setActive(service.id)
+            }}>
+               <img src={service.logo} style={{height:"40px"}} />
+               <small>{service.name}</small>
+              </button>
+
+              
+          ))}
+          
+          {/* <div 
+              className={`service_logo text-center ${active == service.id && 'service_logo_active'}`} 
+              onClick={()=>{
+                  setAuto(false)
+                  setActive(service.id)
+              }}>
+              <span>
+              <img src={service.logo} /><br/><small>{active == service.id && service.name}</small>
+              </span> </div> */}
+
+
+         </div>
+        </div>
+    </div>
+         }
+
+        <div className='col-12 col-lg-10 horizontal_nav mt-2 p-lg-2 p-4'>
+            <div className='row section_info'>
             <div className='col-12 col-md-6 p-0 '>
             <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
 
@@ -69,25 +112,27 @@ export default function Services() {
             </div>
 
             {
-                jsonData.map((service,key)=>(
-                    service.map((item,i)=>(
-                        i == itemActive && key == 0 &&
+                // jsonData.[active]?.map((service,key)=>(
+                  jsonData?.[active]?.data.map((item,i)=>(
+                        item.id == itemActive && 
                         <div className="carousel-inner" key={i}>
-                        <div className={`d-flex justify-content-center carousel-item ${i==itemActive && 'active'}`} style={{height:"90vh"}} data-bs-interval="10000">
-                        <img src={item.url} className="d-block " style={{
-                          height:"100%",
-                         
+                        <div 
+                          className={`d-flex justify-content-center carousel-item ${itemActive == item.id && 'active'}`} 
+                          style={{height:"85vh"}} 
+                          data-bs-interval="10000">
+                         <img src={item.url} className="d-block " style={{
+                          height:"90%",
                         }} alt="..." />
                        
                         </div>
                     </div>
                     ))
-                ))
+                // ))
             }
               <button onClick={()=>{
                 setService(false)
                 setAuto(false)
-                if(itemActive == 0){setItem(2)}
+                if(itemActive == 0){setItem(1)}
                 else  setItem(rev=>rev-1)}}
                 class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -106,13 +151,13 @@ export default function Services() {
             </div>
             <div className='col-12 col-md-6 d-flex justify-content-left'>
                 <section className='d-flex flex-column justify-content-center'>
-                    <div className='service_heading'>{jsonData[active][itemActive].heading.toUpperCase()}</div>
+                    <div className='service_heading text-center'>{jsonData[active]?.data?.[itemActive]?.heading?.toUpperCase()}</div>
                     <ul 
                      style={{textDecoration:"none"}}
                      className={`p-2 `} >
-                        {jsonData[active][itemActive].points.map((point,i)=>(
+                        {jsonData[active]?.data?.[itemActive]?.points?.map((point,i)=>(
                         <div className={`d-flex flex-row mt-4`}>
-                            <img src="/images/tick.svg" style={{height:"24px",marginTop:""}}/>
+                            <img src="/images/tick.svg" style={{height:"20px",marginTop:"4px"}}/>
                             <li className="item">&nbsp;{point}</li>
                         </div>
                         ))}
@@ -124,7 +169,7 @@ export default function Services() {
 
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
