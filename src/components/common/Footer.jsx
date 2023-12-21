@@ -8,9 +8,9 @@ export default function Footer() {
           Owlify
           <img src="/images/logo.png" alt="" width="32" height="24" className="d-inline-block align-text-top"/>
       </a>
-    </div>  
+    </div> 
     <div>
-     All Rights Reserved @owlify 2023 v1.0.5
+     All Rights Reserved @owlify 2023 v1.0.6
     </div>
       
     </div>
