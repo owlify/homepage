@@ -1,8 +1,7 @@
 import React , {useEffect,useRef,useState} from 'react'
-import jsonData from './data.json'
 // import jsonData from './test.json';
 
-export default function Services() {
+export default function Services({jsonData}) {
   const [active,setActive]=useState(1)
   const [auto,setAuto] = useState(true)
   const [service,setService] = useState(true)
@@ -37,9 +36,6 @@ export default function Services() {
     }, 20000 );
     return () => clearInterval(intervalId);
   }, [service])
-
-  console.log(screenWidth)
-
 
   return (
     <section className='shadow'>

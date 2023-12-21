@@ -3,7 +3,10 @@ import Services from '@/components/LandingPage/Services'
 import Head from 'next/head'
 import Image from 'next/image'
 import TryNow from '@/components/common/TryNow'
-export default function Home() {
+import jsonData from '../components/LandingPage/data.json'
+
+export default function Home({data}) {
+  console.log(data)
   return (
     <>
       <Head>
@@ -17,9 +20,19 @@ export default function Home() {
       <div><>Our Services</></div>  
       </div>
 
-      <Services />
+      <Services jsonData={data}/>
       <TryNow />
       </main>
     </>
   )
 }
+
+export const getStaticProps = (async () => {
+  const json = await jsonData
+  console.log(json)
+  return {
+    props: {
+      data:json
+    },
+  };
+})
