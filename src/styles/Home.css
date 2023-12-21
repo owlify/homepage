@@ -2,6 +2,7 @@ main{
   width: 100vw;
   padding: 0;
   margin: 0;
+
 }
 .btn{
   background-color: var(--yellow);
@@ -107,11 +108,12 @@ main{
   font-size: 4vh;
   font-weight: 500;
   border-bottom: 2px  var(--pink);
-  ;
+  color: black !important;
 }
 .item{
   font-size: 2.6vh;
   list-style-type: none;
+  color: var(--font-color) !important;
 }
 .item img{
   height: 22px;
