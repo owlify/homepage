@@ -6,7 +6,6 @@ import TryNow from '@/components/common/TryNow'
 import jsonData from '../components/LandingPage/data.json'
 
 export default function Home({data}) {
-  console.log(data)
   return (
     <>
       <Head>
@@ -29,7 +28,6 @@ export default function Home({data}) {
 
 export const getStaticProps = (async () => {
   const json = await jsonData
-  console.log(json)
   return {
     props: {
       data:json

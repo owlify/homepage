@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className='footer shadow p-4' style={{height:""}}>
+    <div className='footer p-4' style={{height:""}}>
     <div className='row'>
       <a className="navbar-brand logo" href="/">
           Owlify

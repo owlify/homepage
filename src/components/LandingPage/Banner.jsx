@@ -1,59 +1,42 @@
 import React, { useState, useEffect } from 'react';
+import Typewriter from 'typewriter-effect';
+
 const color=['#f3d250','#90ccf4','#f78888']
-
-const Typewriter = ({ sentences }) => {
-  const [displayText, setDisplayText] = useState('');
-  const [sentenceIndex, setSentenceIndex] = useState(0);
-  const [forward, setForward] = useState(true);
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (forward) {
-        // Typing
-        setDisplayText((prevText) => {
-          const nextChar = sentences[sentenceIndex][prevText.length];
-          return prevText + nextChar;
-        });
-  
-        // Check if typing is complete
-        if (displayText.length === sentences[sentenceIndex].length-1) {
-        
-          setForward(false);
-
-        }
-      } else {
-        // Erasing
-    
-          setDisplayText((prevText) => prevText.slice(0, -1));
-          if (displayText.length === 0) {
-            setSentenceIndex((prevIndex) => (prevIndex + 1) % sentences.length);
-            setForward(true);
-          }
-     
-       
-       
-      }
-    }, 100);
-    return () => clearInterval(intervalId);
-  }, [sentences, displayText, forward, sentenceIndex]);
-
-  return (<span style={{color:color[sentenceIndex]}}>{displayText}</span>);
-};
 
 
 export default function Banner() {
   const sentencesToDisplay = [
-    "Acquire new",
-    "Engage better with ",
-    "Retail old",
+    " Acquire new",
+    " Engage better with ",
+    " Retain old",
   ];
   return (
-    <div className='banner shadow'>
+    <div className='banner'>
     <div className='row'>
 
-        <div className='col-12 col-md-6 banner_column d-flex flex-column justify-content-center text-center align-items-center'>
+        <div className='col-12 col-md-6 banner_column d-flex flex-column justify-content-center text-start align-items-center'>
         
           <div className='typewritter'>
-           <h1 style={{fontWeight:"700"}}><Typewriter sentences={sentencesToDisplay} /><span className='blink_me'>{" | "}</span>Customers</h1>
+           <h1 className='d-flex' style={{fontWeight:"700"}}>
+            <span>
+           <Typewriter
+             options={{
+              strings: ['Acquire new', 'Engage better with','Retain old'],
+              autoStart: true,
+              loop: true,
+            }}
+            onInit={(typewriter) => {
+              typewriter.typeString('')
+                .callFunction(() => {
+                  console.log('String typed out!');
+                })
+                .pauseFor(1500)
+                .deleteAll()
+                .callFunction(() => {
+                  console.log('All strings were deleted');
+                })
+                .start();
+            }} /></span>Customers</h1>
            <h4>Grow your business with ease using our automated WhatsApp marketing.</h4>
           </div>
           

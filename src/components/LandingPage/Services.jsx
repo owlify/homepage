@@ -38,7 +38,7 @@ export default function Services({jsonData}) {
   }, [service])
 
   return (
-    <section className='shadow'>
+    <section className=''>
      
       <div className='row p-2 service'>
       
@@ -71,7 +71,7 @@ export default function Services({jsonData}) {
                 setAuto(false)
                 setActive(service.id)
             }}>
-               <img src={service.logo} style={{height:"40px"}} />
+               <img src={service.logo} style={{height:"28px"}} />
                <small>{service.name}</small>
               </button>      
           ))}
@@ -79,7 +79,7 @@ export default function Services({jsonData}) {
          </div>
         </div>
         </div>
-            <div className='service_heading text-start mt-4 ml-2'>{jsonData[active]?.data?.[itemActive]?.heading?.toUpperCase()}</div>
+            <div className='service_heading text_large text-center text-start mt-4 ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div>
             </>
          }
         <div className={`${screenWidth >=992 ? 'col-10 ':'col-12 '}horizontal_nav mt-2 p-lg-2 p-4`}>
@@ -97,7 +97,6 @@ export default function Services({jsonData}) {
                         <div className="carousel-inner" key={i}>
                         <div 
                           className={`d-flex justify-content-center carousel-item ${itemActive == item.id && 'active'}`} 
-                          style={{height:"85vh"}} 
                           data-bs-interval="10000">
                          <img src={item.url} className="d-block " style={{
                           height:"90%",
@@ -130,12 +129,12 @@ export default function Services({jsonData}) {
             <div className='col-12 col-md-6 d-flex justify-content-left'>
                 <section className='d-flex flex-column justify-content-center'>
                   {screenWidth >=992 &&
-                    <div className='service_heading text-start ml-2'>{jsonData[active]?.data?.[itemActive]?.heading?.toUpperCase()}</div>}
+                    <div className='service_heading text-center text_large text-start ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div>}
                     <ul 
                      style={{textDecoration:"none"}}
                      className={`p-2 `} >
                         {jsonData[active]?.data?.[itemActive]?.points?.map((point,i)=>(
-                        <div className={`d-flex flex-row mt-4`}>
+                        <div className={`d-flex flex-row mt-4 text_small`}>
                             <img src="/images/tick.svg" style={{height:"20px",marginTop:"4px"}}/>
                             <li className="item">&nbsp;{point}</li>
                         </div>
