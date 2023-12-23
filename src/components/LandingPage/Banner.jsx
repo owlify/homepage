@@ -5,11 +5,7 @@ const color=['#f3d250','#90ccf4','#f78888']
 
 
 export default function Banner() {
-  const sentencesToDisplay = [
-    " Acquire new",
-    " Engage better with ",
-    " Retain old",
-  ];
+
   return (
     <div className='banner'>
     <div className='row'>
@@ -21,7 +17,11 @@ export default function Banner() {
             <span>
            <Typewriter
              options={{
-              strings: ['Acquire new', 'Engage better with','Retain old'],
+              strings: [
+                '<span style="color: #f3d250;">Acquire new</span>',
+          '<span style="color: #90ccf4;">Engage better with</span>',
+          '<span style="color: #f78888;">Retain old</span>',
+              ],
               autoStart: true,
               loop: true,
             }}
@@ -36,7 +36,10 @@ export default function Banner() {
                   console.log('All strings were deleted');
                 })
                 .start();
-            }} /></span>Customers</h1>
+            }} 
+            components={{ span: (props) => <span {...props} dangerouslySetInnerHTML={{ __html: props.children }} /> }}
+
+            /></span>Customers</h1>
            <h4>Grow your business with ease using our automated WhatsApp marketing.</h4>
           </div>
           

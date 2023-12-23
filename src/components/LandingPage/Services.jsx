@@ -2,10 +2,12 @@ import React , {useEffect,useRef,useState} from 'react'
 // import jsonData from './test.json';
 
 export default function Services({jsonData}) {
-  const [active,setActive]=useState(1)
+  const [active,setActive]=useState(0)
   const [auto,setAuto] = useState(true)
   const [service,setService] = useState(true)
   const [itemActive,setItem]=useState(0)
+  const [itemActive2,setItem2]=useState(0)
+
   const [screenWidth, setScreenWidth] = useState(null);
 
   useEffect(() => {
@@ -22,53 +24,34 @@ export default function Services({jsonData}) {
     setScreenWidth(window.innerWidth);
   };
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-        if(auto){ setActive((prevCount) => prevCount == 1 ? 0 : prevCount + 1)}
-    }, 40000 );
-    return () => clearInterval(intervalId);
-  }, [auto])
+  // useEffect(() => {
+  //   if(screenWidth && screenWidth<992){
+  //   const intervalId = setInterval(() => {
+  //       if(auto){ setActive((prevCount) => prevCount == 1 ? 0 : prevCount + 1)}
+  //   }, 40000 );
+  //   return () => clearInterval(intervalId);
+  //  }
+  // }, [auto,screenWidth])
 
 
   useEffect(() => {
     const intervalId = setInterval(() => {
         if(service){ setItem((prevCount) => prevCount == 1 ? 0 : prevCount + 1)}
-    }, 20000 );
+    }, 2000 );
     return () => clearInterval(intervalId);
   }, [service])
 
   return (
-    <section className=''>
-     
-      <div className='row p-2 service'>
-      
-      {screenWidth >=992 ?
-      <>
-        <div className={`col-2 p-0 vertical_nav`}>
-            <div className='d-flex flex-column align-items-between '>
-              {jsonData.map((service,i)=>(
-                  <div 
-                  className={`service_logo text-center ${active == service.id && 'service_logo_active'}`} 
-                  onClick={()=>{
-                      setAuto(false)
-                      setActive(service.id)
-                  }}>
-                  <span>
-                  <img src={service.logo} /><br/><small>{active == service.id && service.name}</small>
-                  </span> </div>
-              ))}
-            </div>
-        </div>
-        <br/>
-
-      </  >
-      :<>
+   
+      <div className='row p-2 mt-4   service'>
+      {screenWidth < 992 && <>
         <div className='col-12'>
         <div className='d-flex flex-row align-items-between justify-content-center '>
         <div className="btn-group" role="group" >
+      
           {jsonData.map((service,i)=>(
-              <button type="button" className={`btn ${active == service.id && ''}`}  onClick={()=>{
-                setAuto(false)
+              <button type="button" className={`btn ${active == service.id && 'active'}`}  onClick={()=>{
+               
                 setActive(service.id)
             }}>
                <img src={service.logo} style={{height:"28px"}} />
@@ -82,7 +65,9 @@ export default function Services({jsonData}) {
             <div className='service_heading text_large text-center text-start mt-4 ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div>
             </>
          }
-        <div className={`${screenWidth >=992 ? 'col-10 ':'col-12 '}horizontal_nav mt-2 p-lg-2 p-4`}>
+
+
+        <div cassName={`col-12 mt-2 p-lg-2 p-4`}>
             <div className='row section_info'>
             <div className='col-12 col-md-6 p-0 '>
             <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -127,9 +112,9 @@ export default function Services({jsonData}) {
             </div>
             </div>
             <div className='col-12 col-md-6 d-flex justify-content-left'>
-                <section className='d-flex flex-column justify-content-center'>
+                <section className='d-flex flex-column '>
                   {screenWidth >=992 &&
-                    <div className='service_heading text-center text_large text-start ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div>}
+                    <div className='service_heading justify-content-center text-center text_large text-start ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div>}
                     <ul 
                      style={{textDecoration:"none"}}
                      className={`p-2 `} >
@@ -145,9 +130,78 @@ export default function Services({jsonData}) {
             </div>
             </div>
 
+
         </div>
+
+        {/* SECOND SECTION */}
+
+        {screenWidth >= 992 && <div className={`col-12 mt-2 p-lg-2 p-4 mt-4`}>
+            <div className='row section_info'>
+            <div className='col-12 col-md-6 d-flex justify-content-left'>
+                <section className='d-flex flex-column '>
+                  {screenWidth >=992 &&
+                    <div className='service_heading justify-content-center text-center text_large text-start ml-2'>{jsonData[1]?.data?.[itemActive2]?.heading}</div>}
+                    <ul 
+                     style={{textDecoration:"none"}}
+                     className="p-4" >
+                        {jsonData[1]?.data?.[itemActive2]?.points?.map((point,i)=>(
+                        <div className={`d-flex flex-row mt-4 text_small`}>
+                            <img src="/images/tick.svg" style={{height:"20px",marginTop:"4px"}}/>
+                            <li className="item">&nbsp;{point}</li>
+                        </div>
+                        ))}
+                        
+                    </ul>
+                </section>
+            </div>
+            <div className='col-12 col-md-6 p-0 '>
+            <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div className="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className={`${itemActive2 == 0 && 'active'}`} aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" className={`${itemActive2 == 1 && 'active'}`}  aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" className={`${itemActive2 == 2 && 'active'}`}aria-label="Slide 3"></button>
+            </div>
+            {
+                  jsonData?.[1]?.data.map((item,i)=>(
+                        item.id == itemActive2 && 
+                        <div className="carousel-inner" key={i}>
+                        <div 
+                          className={`d-flex justify-content-center carousel-item ${itemActive2 == item.id && 'active'}`} 
+                          data-bs-interval="10000">
+                         <img src={item.url} className="d-block " style={{
+                          height:"90%",
+                        }} alt="..." />
+                       
+                        </div>
+                    </div>
+                    ))
+            }
+              <button onClick={()=>{
+                setService(false)
+                if(itemActive2 == 0){setItem2(1)}
+                else  setItem2(rev=>rev-1)}}
+                className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+            </button>
+            <button onClick={()=>{
+                setService(false)
+                if(itemActive2 == 2){setItem2(0)}
+                else  setItem2(rev=>rev+1)}}className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+            </button>
+           
+            </div>
+            </div>
+          
+            </div>
+
+
+        </div>}
+
       </div>
-    </section>
+   
   )
 }
 

@@ -33,9 +33,9 @@
             "points":[
                 "Personalized order confirmation as soon as order is placed.",
                 "Send personalized offers, coupons for next order.",
-                "Send readymade automated messages to customers.",
+                "Send readymade automated emails to customers.",
                 "Track the converted orders statistics on the dashboard."],
-            "heading":"Personalized Order Confirmation Messages"
+            "heading":"Personalized Order Confirmation Emails"
 
         }
     ]

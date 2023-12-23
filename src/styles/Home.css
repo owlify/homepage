@@ -146,7 +146,7 @@ main{
 }
 @media only screen and (min-width: 992px) {
   .carousel-item{
-    height: 85vh ;
+    height: 70vh ;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -169,6 +169,7 @@ main{
     font-weight: 600;
     line-height: 7.4vw; 
     word-wrap: break-word;
+    
   }
   .carousel{
   }
