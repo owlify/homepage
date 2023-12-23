@@ -47,14 +47,14 @@ export default function Banner() {
     "Retail old",
   ];
   return (
-    <div className='banner shadow'>
+    <div className='banner'>
     <div className='row'>
 
-        <div className='col-12 col-md-6 banner_column d-flex flex-column justify-content-center text-center align-items-center'>
+        <div className='col-12 col-md-6 banner_column d-flex flex-column justify-content-center align-items-center'>
         
           <div className='typewritter'>
-           <h1 style={{fontWeight:"700"}}><Typewriter sentences={sentencesToDisplay} /><span className='blink_me'>{" | "}</span>Customers</h1>
-           <h4>Grow your business with ease using our automated WhatsApp marketing.</h4>
+           <h1 style={{fontWeight:"700", fontSize: '60px'}}><Typewriter sentences={sentencesToDisplay} /><span className='blink_me'>{" | "}</span><br />Customers</h1>
+           <h5 className='company-description'>Grow your business with ease using our automated WhatsApp marketing.</h5>
           </div>
           
           </div>

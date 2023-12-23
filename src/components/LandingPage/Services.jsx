@@ -79,7 +79,7 @@ export default function Services({jsonData}) {
          </div>
         </div>
         </div>
-            <div className='service_heading text-start mt-4 ml-2'>{jsonData[active]?.data?.[itemActive]?.heading?.toUpperCase()}</div>
+            <div className='service_heading text-start mt-4 ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div>
             </>
          }
         <div className={`${screenWidth >=992 ? 'col-10 ':'col-12 '}horizontal_nav mt-2 p-lg-2 p-4`}>
@@ -130,13 +130,13 @@ export default function Services({jsonData}) {
             <div className='col-12 col-md-6 d-flex justify-content-left'>
                 <section className='d-flex flex-column justify-content-center'>
                   {screenWidth >=992 &&
-                    <div className='service_heading text-start ml-2'>{jsonData[active]?.data?.[itemActive]?.heading?.toUpperCase()}</div>}
+                    <div className='service_heading text-start ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div>}
                     <ul 
                      style={{textDecoration:"none"}}
                      className={`p-2 `} >
                         {jsonData[active]?.data?.[itemActive]?.points?.map((point,i)=>(
                         <div className={`d-flex flex-row mt-4`}>
-                            <img src="/images/tick.svg" style={{height:"20px",marginTop:"4px"}}/>
+                            <img src="/images/tick.svg" style={{height:"20px",marginTop:"4px", marginRight: "5px"}}/>
                             <li className="item">&nbsp;{point}</li>
                         </div>
                         ))}
