@@ -18,8 +18,8 @@ export default function Banner() {
              options={{
               strings: [
                 '<span style="color: #f3d250;">Acquire new</span>',
-          '<span style="color: #90ccf4;">Engage better with</span>',
-          '<span style="color: #f78888;">Retain old</span>',
+                '<span style="color: #90ccf4;">Engage better with</span>',
+                '<span style="color: #f78888;">Retain old</span>',
               ],
               autoStart: true,
               loop: true,
@@ -36,13 +36,13 @@ export default function Banner() {
                 })
                 .start();
             }} 
-            components={{ span: (props) => <span {...props} dangerouslySetInnerHTML={{ __html: props.children }} /> }}
+            components={{ span: (props) => <span {...props} dangerouslySetInnerHTML={{ __html: props.children }} ></span> }}
 
             />Customers</div>
            <h4>Grow your business with ease using our automated WhatsApp marketing.</h4>
           </div>
           <div className='col-12'>
-            <div className='row p-4 d-flex justify-content-between' >
+            <div className='row p-2 d-flex justify-content-between p-4' >
               <img src="/images/shopify.png" className='col-6 col-lg-3 integration_logos' />
               <img src="/images/shopify_plus.png" className='col-6 col-lg-3 p-3 integration_logos'  />
               <img src="/images/Magento.png" className='col-6 col-lg-3 p-3 integration_logos' />

@@ -44,7 +44,7 @@ export default function Services({jsonData}) {
   return (
    
       <div className='row p-2 mt-4   service'>
-      {screenWidth < 992 && <>
+      {/* {screenWidth < 992 && <>
         <div className='col-12'>
         <div className='d-flex flex-row align-items-between justify-content-center '>
         <div className="btn-group" role="group" >
@@ -66,7 +66,7 @@ export default function Services({jsonData}) {
 
             <div className='service_heading text_large text-start mt-4 '>{jsonData[active]?.data?.[itemActive]?.heading}</div>
             </>
-         }
+         } */}
 
 
         <div cassName={`col-12 mt-2 p-lg-2 p-4`}>
@@ -98,7 +98,7 @@ export default function Services({jsonData}) {
                 setAuto(false)
                 if(itemActive == 0){setItem(1)}
                 else  setItem(rev=>rev-1)}}
-                className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev"  data-interval="false" data-touch="true" data-ride="carousel">
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Previous</span>
             </button>
@@ -114,10 +114,11 @@ export default function Services({jsonData}) {
             </div>
             </div>
             <div className='col-12 col-md-6 d-flex justify-content-left'>
-                <section className='d-flex flex-column '>
-                  {screenWidth >=992 &&<>
+                <section className='d-flex flex-column p-4'>
+                  {/* {screenWidth >=992 &&<> */}
                     <div className='service_heading text_large '> {jsonData[active]?.name}<img  className="heading_image"  src={jsonData[active].logo}/> </div>
-                    <div className='service_heading justify-content-center text_large text-start ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div></>}
+                    <div className='service_heading justify-content-center text_large text-start ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div>
+                    {/* </>} */}
                     <ul className='p-0' style={{textDecoration:"none"}} >
                         {jsonData[active]?.data?.[itemActive]?.points?.map((point,i)=>(
                         <div className={`d-flex flex-row mt-4 text_small`}>
@@ -136,26 +137,10 @@ export default function Services({jsonData}) {
 
         {/* SECOND SECTION */}
 
-        {screenWidth >= 992 && <div className={`col-12 mt-2 p-lg-2 p-4 mt-4`}>
-            <div className='row section_info'>
-            <div className='col-12 col-md-6 d-flex justify-content-left'>
-                <section className='d-flex flex-column p-4'>
-                  {screenWidth >=992 &&<>
-                    <div className='service_heading text_large'>{jsonData[1]?.name} <img  className="heading_image"  src={jsonData[1].logo}/> </div>
-                    <div className='service_heading text_large text-start'>{jsonData[1]?.data?.[itemActive2]?.heading}</div></>}
-                    <ul className="p-0" style={{textDecoration:"none"}} >
-                        {jsonData[1]?.data?.[itemActive2]?.points?.map((point,i)=>(
-                        <div className={`d-flex flex-row mt-4 text_small`}>
-                            <img src="/images/tick.svg" style={{height:"20px",marginTop:"4px"}}/>
-                            <li className="item">&nbsp;{point}</li>
-                        </div>
-                        ))}
-                        
-                    </ul>
-                </section>
-            </div>
+        <div className={`col-12 mt-2 p-lg-2 mt-4`}>
+            <div className='row section_info d-flex flex-row-reverse'>
             <div className='col-12 col-md-6'>
-            <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel"  data-interval="false" data-touch="true" data-ride="carousel">
             <div className="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className={`${itemActive2 == 0 && 'active'}`} aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" className={`${itemActive2 == 1 && 'active'}`}  aria-label="Slide 2"></button>
@@ -196,11 +181,28 @@ export default function Services({jsonData}) {
            
             </div>
             </div>
+            <div className='col-12 col-md-6 d-flex justify-content-left'>
+                <section className='d-flex flex-column p-4'>
+                  
+                    <div className='service_heading text_large'>{jsonData[1]?.name} <img  className="heading_image"  src={jsonData[1].logo}/> </div>
+                    <div className='service_heading text_large text-start'>{jsonData[1]?.data?.[itemActive2]?.heading}</div>
+                    <ul className="p-0" style={{textDecoration:"none"}} >
+                        {jsonData[1]?.data?.[itemActive2]?.points?.map((point,i)=>(
+                        <div className={`d-flex flex-row mt-4 text_small`}>
+                            <img src="/images/tick.svg" style={{height:"20px",marginTop:"4px"}}/>
+                            <li className="item">&nbsp;{point}</li>
+                        </div>
+                        ))}
+                        
+                    </ul>
+                </section>
+            </div>
+           
           
             </div>
 
 
-        </div>}
+        </div>
 
       </div>
    
