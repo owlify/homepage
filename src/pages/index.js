@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import TryNow from '@/components/common/TryNow'
 import jsonData from '../components/LandingPage/data.json'
+import Clients from '@/components/LandingPage/Clients'
 
 export default function Home({data}) {
   return (
@@ -20,7 +21,11 @@ export default function Home({data}) {
       </div>
 
       <Services jsonData={data}/>
-      <TryNow />
+      <div className='row p-2 headings text-center'>
+      <div><>Our Clients</></div>  
+      <Clients/>
+      </div>
+      {/* <TryNow /> */}
       </main>
     </>
   )

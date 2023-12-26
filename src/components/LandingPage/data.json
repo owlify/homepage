@@ -1,47 +1,6 @@
 [
-    
-    { "id":0,
-      "name":"Email",
-      "logo":"/images/email.svg",
-      "data":[
-    
-        {   "id":0,
-            "url":"/images/email_abondoned.png",
-            "points":[
-                "Bring back customers who didn’t place order",
-                "Utilize predefined Email templates to make things easy and faster",
-                "Automatically send Emails to remind customers about their abandoned carts",
-                "Use readymade abandoned cart automations.",
-                "Monitor the success of your cart recovery Emails with performance metrics"
-                ],
-            "heading":"Abandoned Cart Recovery"
-
-        },
-        {   "id":1,
-            "url":"/images/email_promotional.png",
-            "points":[
-                "Send targeted campaigns to all/specific groups of customers via Email API",
-                "Personalize communication with relevant offers, discounts, and festival wishes",
-                "Personalize promotional communication on customer’s action.",
-                "Utilize rich media and interactive templates to elevate campaign performance ",
-                "Track the success of your Emails with detailed performance statistics"],
-            "heading":"Broadcast Promotional Emails"
-
-        },
-        {   "id":2,
-            "url":"/images/email_order.png",
-            "points":[
-                "Personalized order confirmation as soon as order is placed.",
-                "Send personalized offers, coupons for next order.",
-                "Send readymade automated emails to customers.",
-                "Track the converted orders statistics on the dashboard."],
-            "heading":"Personalized Order Confirmation Emails"
-
-        }
-    ]
-    },
     {
-        "id":1,
+        "id":0,
         "name":"Whatsapp",
         "logo":"/images/whatsapp.svg",
         "data": [
@@ -81,7 +40,49 @@
 
         }
     ]
+    },
+    
+    { "id":1,
+      "name":"Email",
+      "logo":"/images/email.svg",
+      "data":[
+    
+        {   "id":0,
+            "url":"/images/email_abondoned.png",
+            "points":[
+                "Bring back customers who didn’t place order",
+                "Utilize predefined Email templates to make things easy and faster",
+                "Automatically send Emails to remind customers about their abandoned carts",
+                "Use readymade abandoned cart automations.",
+                "Monitor the success of your cart recovery Emails with performance metrics"
+                ],
+            "heading":"Abandoned Cart Recovery"
+
+        },
+        {   "id":1,
+            "url":"/images/email_promotional.png",
+            "points":[
+                "Send targeted campaigns to all/specific groups of customers via Email API",
+                "Personalize communication with relevant offers, discounts, and festival wishes",
+                "Personalize promotional communication on customer’s action.",
+                "Utilize rich media and interactive templates to elevate campaign performance ",
+                "Track the success of your Emails with detailed performance statistics"],
+            "heading":"Broadcast Promotional Emails"
+
+        },
+        {   "id":2,
+            "url":"/images/email_order.png",
+            "points":[
+                "Personalized order confirmation as soon as order is placed.",
+                "Send personalized offers, coupons for next order.",
+                "Send readymade automated emails to customers.",
+                "Track the converted orders statistics on the dashboard."],
+            "heading":"Personalized Order Confirmation Emails"
+
+        }
+    ]
     }
+  
  
 ]
     

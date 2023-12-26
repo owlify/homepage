@@ -12,9 +12,8 @@ export default function Banner() {
 
         <div className='col-12 col-md-6 banner_column d-flex flex-column justify-content-center text-start align-items-center'>
         
-          <div className='typewritter'>
-           <h1 className='d-flex' style={{fontWeight:"700"}}>
-            <span>
+          <div className='typewritter col-12'>
+           <div className='d-flex typewriting' style={{fontWeight:"700"}}>
            <Typewriter
              options={{
               strings: [
@@ -39,10 +38,17 @@ export default function Banner() {
             }} 
             components={{ span: (props) => <span {...props} dangerouslySetInnerHTML={{ __html: props.children }} /> }}
 
-            /></span>Customers</h1>
+            />Customers</div>
            <h4>Grow your business with ease using our automated WhatsApp marketing.</h4>
           </div>
-          
+          <div className='col-12'>
+            <div className='row p-4 d-flex justify-content-between' >
+              <img src="/images/shopify.png" className='col-6 col-lg-3 integration_logos' />
+              <img src="/images/shopify_plus.png" className='col-6 col-lg-3 p-3 integration_logos'  />
+              <img src="/images/Magento.png" className='col-6 col-lg-3 p-3 integration_logos' />
+              <img src="/images/WooCommerce.png" className='col-6 col-lg-3 p-3 integration_logos'  />
+          </div>
+        </div>
           </div>
       
         <div className='col-12 col-md-6 p-0 banner_column' >

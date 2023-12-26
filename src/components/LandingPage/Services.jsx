@@ -62,7 +62,9 @@ export default function Services({jsonData}) {
          </div>
         </div>
         </div>
-            <div className='service_heading text_large text-center text-start mt-4 ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div>
+        <div className='service_heading text_large'> {jsonData[active]?.name} <img  className="heading_image"  src={jsonData[active].logo}/></div>
+
+            <div className='service_heading text_large text-start mt-4 '>{jsonData[active]?.data?.[itemActive]?.heading}</div>
             </>
          }
 
@@ -113,11 +115,10 @@ export default function Services({jsonData}) {
             </div>
             <div className='col-12 col-md-6 d-flex justify-content-left'>
                 <section className='d-flex flex-column '>
-                  {screenWidth >=992 &&
-                    <div className='service_heading justify-content-center text-center text_large text-start ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div>}
-                    <ul 
-                     style={{textDecoration:"none"}}
-                     className={`p-2 `} >
+                  {screenWidth >=992 &&<>
+                    <div className='service_heading text_large '> {jsonData[active]?.name}<img  className="heading_image"  src={jsonData[active].logo}/> </div>
+                    <div className='service_heading justify-content-center text_large text-start ml-2'>{jsonData[active]?.data?.[itemActive]?.heading}</div></>}
+                    <ul className='p-0' style={{textDecoration:"none"}} >
                         {jsonData[active]?.data?.[itemActive]?.points?.map((point,i)=>(
                         <div className={`d-flex flex-row mt-4 text_small`}>
                             <img src="/images/tick.svg" style={{height:"20px",marginTop:"4px"}}/>
@@ -138,12 +139,11 @@ export default function Services({jsonData}) {
         {screenWidth >= 992 && <div className={`col-12 mt-2 p-lg-2 p-4 mt-4`}>
             <div className='row section_info'>
             <div className='col-12 col-md-6 d-flex justify-content-left'>
-                <section className='d-flex flex-column '>
-                  {screenWidth >=992 &&
-                    <div className='service_heading justify-content-center text-center text_large text-start ml-2'>{jsonData[1]?.data?.[itemActive2]?.heading}</div>}
-                    <ul 
-                     style={{textDecoration:"none"}}
-                     className="p-4" >
+                <section className='d-flex flex-column p-4'>
+                  {screenWidth >=992 &&<>
+                    <div className='service_heading text_large'>{jsonData[1]?.name} <img  className="heading_image"  src={jsonData[1].logo}/> </div>
+                    <div className='service_heading text_large text-start'>{jsonData[1]?.data?.[itemActive2]?.heading}</div></>}
+                    <ul className="p-0" style={{textDecoration:"none"}} >
                         {jsonData[1]?.data?.[itemActive2]?.points?.map((point,i)=>(
                         <div className={`d-flex flex-row mt-4 text_small`}>
                             <img src="/images/tick.svg" style={{height:"20px",marginTop:"4px"}}/>
@@ -154,42 +154,44 @@ export default function Services({jsonData}) {
                     </ul>
                 </section>
             </div>
-            <div className='col-12 col-md-6 p-0 '>
+            <div className='col-12 col-md-6'>
             <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
             <div className="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className={`${itemActive2 == 0 && 'active'}`} aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" className={`${itemActive2 == 1 && 'active'}`}  aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" className={`${itemActive2 == 2 && 'active'}`}aria-label="Slide 3"></button>
             </div>
+
             {
-                  jsonData?.[1]?.data.map((item,i)=>(
-                        item.id == itemActive2 && 
-                        <div className="carousel-inner" key={i}>
-                        <div 
-                          className={`d-flex justify-content-center carousel-item ${itemActive2 == item.id && 'active'}`} 
-                          data-bs-interval="10000">
-                         <img src={item.url} className="d-block " style={{
-                          height:"90%",
-                        }} alt="..." />
-                       
-                        </div>
-                    </div>
-                    ))
+              jsonData?.[1]?.data.map((item,i)=>(
+                item.id == itemActive2 && 
+                <div className="carousel-inner" key={i}>
+                <div 
+                  className={`d-flex justify-content-center carousel-item ${itemActive2 == item.id && 'active'}`} 
+                  data-bs-interval="10000">
+                  <img src={item.url} className="d-block " style={{
+                  height:"90%",
+                }} alt="..." />
+                    
+                  </div>
+                </div>
+              ))
             }
-              <button onClick={()=>{
-                setService(false)
-                if(itemActive2 == 0){setItem2(1)}
-                else  setItem2(rev=>rev-1)}}
-                className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
-            </button>
             <button onClick={()=>{
-                setService(false)
-                if(itemActive2 == 2){setItem2(0)}
-                else  setItem2(rev=>rev+1)}}className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
+              setService(false)
+              if(itemActive2 == 0){setItem2(1)}
+              else  setItem2(rev=>rev-1)}}
+              className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+
+            <button onClick={()=>{
+              setService(false)
+              if(itemActive2 == 2){setItem2(0)}
+              else  setItem2(rev=>rev+1)}}className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
             </button>
            
             </div>
