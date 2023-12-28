@@ -12,7 +12,7 @@ export default function Header() {
           </span>
         </div> 
     </a>
-  <button className='btn'>Contact Us</button>
+  {/* <button className='btn'>Contact Us</button> */}
   </div>
 </nav>
   )

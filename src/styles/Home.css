@@ -44,10 +44,11 @@ main{
   background-image: url("../../public/images/bg-rtl-info-block-light.png");
   background-size: cover;
 
-  .company-description {
-    font-color: var(--font-color);
-    font-size: var(--font-size-h2);
-  }
+  
+}
+.company-description {
+  font-color: var(--font-color);
+  font-size: var(--font-size-h2);
 }
 .banner_column{
   /* height: calc(100vh - 160px); */
@@ -58,8 +59,6 @@ main{
 .typewritter{
   font-weight: 900;
   width: 100%;
-  padding-left: 5% ;
-  padding-right: 5% ;
   font-size: 2vw;
   color:#353e44;
 }
@@ -86,7 +85,6 @@ main{
   margin-top: 10vh;
   transition: all 0.4s ;
   border-radius: 0px 40px 40px 0 ;  
-  padding: 4px 
   
 }
 
@@ -138,7 +136,7 @@ main{
   opacity: 0;
 }
 .footer{
-  padding: 24px 50px 24px 50px;
+  /* padding: 24px 50px 24px 50px; */
   background-color: var(--pink);
   color: #ffffff;
 
@@ -174,7 +172,9 @@ main{
     font-size: var(--font-size-h4);
   }
 }
-
+.small_margin{
+  margin-top: 6vh;
+}
 @media only screen and (max-width: 500px) {
   .footer {
     .company-description {
@@ -199,27 +199,35 @@ main{
   .clientsimg{
     max-height: 16vh !important;
   }
-  .typewritter{
-    font-size: 2rem !important;
-  }
+ 
 }
 @media only screen and (min-width: 426px) {
   .carousel-item{
     height: 70vh ;
   }
-  .clientsimg{
-    max-height: 16vh !important;
-  }
+  
 }
 @media only screen and (min-width: 992px) {
   .carousel-item{
     height: 70vh ;
   }
   .clientsimg{
-    max-height: 24vh !important;
+    max-height: 18vh !important;
+  }
+  .clientsimg img{
+    width: auto;
+    height: 100%;
   }
 }
 @media only screen and (max-width: 992px) {
+ 
+  .clientsimg img{
+    height: auto;
+    width: 20vw;
+  }
+  .typewritter{
+    font-size: 2rem !important;
+  }
   .typewriting{
      font-size: 38px;
   }
@@ -233,7 +241,7 @@ main{
     margin-top: 3vh;
   }
   .banner_img{
-    margin-top: 7vh
+    margin-top: 0vh
   }
   .headings{
     margin-top: 2.4vh;
@@ -257,7 +265,6 @@ main{
 
 .text_small{
   font-size: 1rem;
-
 }
 .text_large{
   font-size: 1.5rem;
@@ -266,6 +273,9 @@ main{
   font-size: 1.8rem;
 }
 .heading_image{
-  height: 2rem;
+  height: 3rem;
+  margin-left: 0.5rem;
 }
-
+.text_xl{
+  font-size: 2.25rem;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className='footer' style={{height:""}}>
+    <div className='footer p-4' style={{height:""}}>
     <div className='__row'>
       <div className='d-inline-block'>
         <div className='company-description'>

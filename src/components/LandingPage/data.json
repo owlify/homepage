@@ -1,8 +1,8 @@
 [
     {
         "id":0,
-        "name":"Whatsapp",
-        "logo":"/images/whatsapp.svg",
+        "name":"WhatsApp",
+        "logo":"/images/whatsapp.png",
         "data": [
     
         {   "id":0,
@@ -44,7 +44,7 @@
     
     { "id":1,
       "name":"Email",
-      "logo":"/images/email.svg",
+      "logo":"/images/gmail.png",
       "data":[
     
         {   "id":0,
