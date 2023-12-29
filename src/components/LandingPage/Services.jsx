@@ -116,7 +116,7 @@ export default function Services({jsonData}) {
       <div className='col-12 d-flex align-items-center service_heading text_xl '>{jsonData[1]?.name} <img  className="heading_image"  src={jsonData[1].logo}/> </div>
       <div className="col-12 mt-2  mt-4">
           <div className='row section_info d-flex'>
-          <div className='col-12 col-md-6'>
+          <div className='col-12 col-md-4'>
           <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel"  data-interval="false" data-touch="true" data-ride="carousel">
           <div className="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className={`${itemActive2 == 0 && 'active'}`} aria-current="true" aria-label="Slide 1"></button>
@@ -158,7 +158,7 @@ export default function Services({jsonData}) {
           
           </div>
           </div>
-          <div className='col-12 col-md-6 d-flex justify-content-left'>
+          <div className='col-12 col-md-8 d-flex justify-content-left'>
               <section className='d-flex flex-column '>
                 
                   <div className='service_heading text_large text-start'>{jsonData[1]?.data?.[itemActive2]?.heading}</div>
