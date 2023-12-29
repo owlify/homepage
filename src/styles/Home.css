@@ -111,10 +111,10 @@ main{
 .section_info{
 }
 
-.container-fluid {
+/* .container-fluid {
   padding-left: 50px;
   padding-right: 50px;
-}
+} */
 
 .service_heading{
   font-size: var(--font-size-h1);
