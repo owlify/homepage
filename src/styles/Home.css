@@ -115,7 +115,9 @@ main{
   padding-left: 50px;
   padding-right: 50px;
 } */
-
+a:hover{
+  color: rgb(39, 124, 228);
+}
 .service_heading{
   font-size: var(--font-size-h1);
   font-weight: 500;
@@ -292,4 +294,8 @@ main{
 
 .small_margin{
   margin-top: 6vh;
+}
+.Typewriter::after{
+  content: 'Customers' !important;
+  color: var(--font-color); /* Adjust the color as needed */
 }

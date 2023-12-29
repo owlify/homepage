@@ -13,11 +13,11 @@ export default function Banner() {
         <div className='col-12 col-md-6 banner_column d-flex flex-column justify-content-center text-start align-items-center'>
         
           <div className='typewritter col-12'>
-           <div className='d-flex typewriting' style={{fontWeight:"700"}}>
+           <span className='d-flex typewriting' style={{fontWeight:"700"}}>
            <Typewriter
              options={{
               strings: [
-                '<span style="color: #f3d250;">Acquire new</span>',
+                '<span className="type_end" style="color: #f3d250;">Acquire new</span>',
                 '<span style="color: #90ccf4;">Engage better with</span>',
                 '<span style="color: #f78888;">Retain old</span>',
               ],
@@ -36,16 +36,16 @@ export default function Banner() {
                 })
                 .start();
             }} 
-            components={{ span: (props) => <span {...props} dangerouslySetInnerHTML={{ __html: props.children }} ></span> }}
+            components={{ span: (props) => <span  {...props} dangerouslySetInnerHTML={{ __html: props.children }} ></span> }}
 
-            /></div>
+            /></span>
            <h4>Grow your business with ease using our automated WhatsApp marketing.</h4>
           </div>
           <div className='col-12'>
             <div className='row d-flex justify-content-between ' >
               <img src="/images/s1-removebg-preview.png" className='col-3 integration_logos' />
-              <img src="/images/s2-removebg-preview.png" className='col-3  integration_logos'  />
-              <img src="/images/s3-removebg-preview.png" className='col-3  integration_logos' />
+              <img src="/images/s2-removebg-preview.png" className='col-3 integration_logos'  />
+              <img src="/images/s3-removebg-preview.png" className='col-3 integration_logos' />
               <img src="/images/s4-removebg-preview.png" className='col-3 integration_logos'  />
           </div>
         </div>

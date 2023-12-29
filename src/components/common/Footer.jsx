@@ -30,9 +30,9 @@ export default function Footer() {
       </div>
       <div className='d-inline-block'>
         <ul className='list-heading'>Contact Info</ul>
-        <li className='list-item'>support@owlify.in</li>
-        <li className='list-item'>+918519027140</li>
-        <li className='list-item'>+918319251643</li>
+        <li className='list-item'><a href="mailto:support@owlify.in?subject=SendMail&body=">support@owlify.in</a></li>
+        <li className='list-item'><a href='tel:+918519027140'>+91-8519027140</a></li>
+        <li className='list-item'><a href='tel:+918319251643'>+91-8319251643</a></li>
       </div>
     </div> 
 
