@@ -2,7 +2,12 @@ import React from 'react'
 
 export default function Clients() {
   return (
-    <div className='row p-4 d-flex justify-content-between clients' >
+    <section className='sec_back p-4 '>
+      <div className='row headings text-center'>
+      <div><>Our Clients</></div>  
+      </div>
+  
+    <div className='row d-flex justify-content-between clients ' >
        <div className='col-0 col-md-2'> </div>
        <div className='col-12 col-md-8'>
        <div className='row'>
@@ -28,6 +33,7 @@ export default function Clients() {
     <img src="/images/infowareindia.jpeg" style={{ height: "100%",width:"100%"}} className='col-6 col-lg-3 p-3 integration_logos'  />
     <img src="/images/pgr.png" style={{ height: "100%",width:"100%"}} className='col-6 col-lg-3 p-3 integration_logos' />
     <img src="/images/the_code_dose.png" style={{ height: "100%",width:"100%"}} className='col-6 col-lg-3 p-3 integration_logos'  /> */}
-</div>
+    </div>
+</section>
   )
 }

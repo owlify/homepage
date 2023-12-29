@@ -17,10 +17,7 @@ export default function Home({data}) {
       <main className="container-fluid p-0">
       <Banner/>
       <Services jsonData={data}/>
-      <div className='row headings text-center'>
-      <div><>Our Clients</></div>  
       <Clients/>
-      </div>
       {/* <TryNow /> */}
       </main>
     </>

@@ -17,7 +17,9 @@ main{
 .btn:active{
   background-color: var(--blue);
 }
-
+.sec_back{
+  background-color: var(--sec_back);
+}
 .headings{
   font-weight: 500;
   /* border-top: 4px dashed var(--pink); */
@@ -166,15 +168,23 @@ main{
     font-size: var(--font-size-h3);
     cursor: pointer;
   }
+  .share_logo{
+    height:var(--font-size-h2) ;
+    width:var(--font-size-h2);
+    margin-right: 2px;;
+  }
+  .share_logo2{
+    height: 25px;
+    width: 25px;
+    margin-right: 2px;;
+  }
 
   .bottom-line {
     margin-top: 100px;
     font-size: var(--font-size-h4);
   }
 }
-.small_margin{
-  margin-top: 6vh;
-}
+
 @media only screen and (max-width: 500px) {
   .footer {
     .company-description {
@@ -278,4 +288,8 @@ main{
 }
 .text_xl{
   font-size: 2.25rem;
+}
+
+.small_margin{
+  margin-top: 6vh;
 }

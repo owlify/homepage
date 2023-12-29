@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { LinkedinIcon,XIcon,EmailIcon } from 'react-share'
 export default function Footer() {
   return (
     <div className='footer p-4' style={{height:""}}>
@@ -24,9 +24,9 @@ export default function Footer() {
       </div>
       <div className='d-inline-block'>
         <ul className='list-heading'>Social</ul>
-        <li className='list-item'>Linkedin</li>
-        <li className='list-item'>Instagram</li>
-        <li className='list-item'>Twitter</li>
+        <li className='list-item d-flex align-items-center'><img src="/images/linkdin.png" className='share_logo2' />Linkedin</li>
+        <li className='list-item d-flex align-items-center'><img src="/images/insta.png" className='share_logo2' />Instagram</li>
+        <li className='list-item d-flex align-items-center'><img src="/images/x.png" className='share_logo2' />Twitter</li>
       </div>
       <div className='d-inline-block'>
         <ul className='list-heading'>Contact Info</ul>
